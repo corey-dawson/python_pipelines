@@ -1,6 +1,6 @@
 from .data_loader import DataLoader
 from .exporter import Exporter
-from .transform import structure_data
+from .transform import transform_pipeline
 
 
 class Pipeline:
@@ -11,8 +11,7 @@ class Pipeline:
 
         # transform logic here
         print(f"Transforming {len(data)} data points...")
-        data = structure_data(data)
-        data = [x for x in data if x.value > 50]
+        data = transform_pipeline(data)
         print(f"Filtered: {len(data)} remaining rows")
         
         # export
